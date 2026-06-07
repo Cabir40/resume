@@ -1,0 +1,59 @@
+---
+layout: base.njk
+nav: project-demos
+pagination:
+  data: projectDemos
+  size: 1
+  alias: demo
+permalink: "/project-demos/{{ demo.slug }}/"
+eleventyComputed:
+  title: "{{ demo.title }} — Project Demos — Cabir Celik"
+  description: "{{ demo.subtitle }}"
+---
+<article class="demo-page">
+  <header class="demo-spread__header">
+    <p class="running-head">Project Demos &middot; {{ demo.volume }} &middot; {{ demo.issue }}</p>
+    <h1 class="demo-spread__title">{{ demo.title }}</h1>
+    <p class="demo-spread__subtitle">{{ demo.subtitle }}</p>
+  </header>
+
+  <div class="demo-spread">
+    {% if demo.pullquote %}
+    <blockquote class="pullquote">
+      <p>{{ demo.pullquote }}</p>
+      {% if demo.pullquoteCite %}<cite class="mono">{{ demo.pullquoteCite }}</cite>{% endif %}
+    </blockquote>
+    {% endif %}
+
+    <div class="prose demo-spread__body">{{ demo.content | safe }}</div>
+
+    {% if demo.media and demo.media.length %}
+    <div class="media-gallery">
+      {% for item in demo.media %}
+      <figure class="media-figure">
+        {% if item.placeholder %}
+        <div class="media-figure__placeholder mono">[ {{ item.type }} placeholder ]</div>
+        {% elif item.type == "video" %}
+        <video class="media-figure__media" src="{{ item.src }}" controls></video>
+        {% else %}
+        <img class="media-figure__media" src="{{ item.src }}" alt="{{ item.caption }}">
+        {% endif %}
+        <figcaption>{{ item.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if demo.links and demo.links.length %}
+    <ul class="demo-links">
+      {% for link in demo.links %}
+      {% if link.url %}
+      <li><a class="demo-links__link demo-links__link--{{ link.style or 'secondary' }}" href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+  <p class="demo-page__back"><a href="/project-demos/">&larr; Back to Project Demos</a></p>
+</article>
