@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
   <script>
     (function () {
       var stored = localStorage.getItem("theme");
@@ -19,11 +19,11 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="site-header__brand" href="/">Cabir Celik</a>
+    <a class="site-header__brand" href="{{ '/' | url }}">Cabir Celik</a>
     <nav class="site-nav" aria-label="Primary">
-      <a class="site-nav__link" href="/" {% if nav == "me" %}aria-current="page"{% endif %}>Me</a>
-      <a class="site-nav__link" href="/projects/" {% if nav == "projects" %}aria-current="page"{% endif %}>Projects</a>
-      <a class="site-nav__link" href="/demos/" {% if nav == "demos" %}aria-current="page"{% endif %}>Demos</a>
+      <a class="site-nav__link" href="{{ '/' | url }}" {% if nav == "me" %}aria-current="page"{% endif %}>Me</a>
+      <a class="site-nav__link" href="{{ '/projects/' | url }}" {% if nav == "projects" %}aria-current="page"{% endif %}>Projects</a>
+      <a class="site-nav__link" href="{{ '/demos/' | url }}" {% if nav == "demos" %}aria-current="page"{% endif %}>Demos</a>
     </nav>
     <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle dark mode">
       <span class="theme-toggle__icon" aria-hidden="true">&#9788;</span>

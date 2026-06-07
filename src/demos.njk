@@ -16,9 +16,9 @@ permalink: /demos/
     {% for demo in demos %}
     <li class="demo-card">
       <p class="demo-card__volume mono">{{ demo.volume }} &middot; {{ demo.issue }}</p>
-      <h2 class="demo-card__title"><a href="/demos/{{ demo.slug }}/">{{ demo.title }}</a></h2>
+      <h2 class="demo-card__title"><a href="{{ '/demos/' | url }}{{ demo.slug }}/">{{ demo.title }}</a></h2>
       <p class="demo-card__subtitle">{{ demo.subtitle }}</p>
-      <a class="demo-card__link" href="/demos/{{ demo.slug }}/">Read the write-up &rarr;</a>
+      <a class="demo-card__link" href="{{ '/demos/' | url }}{{ demo.slug }}/">Read the write-up &rarr;</a>
     </li>
     {% endfor %}
   </ul>

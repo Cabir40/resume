@@ -19,7 +19,7 @@ permalink: /projects/
       <p class="project-card__stack mono">{{ project.stack }}</p>
       <div class="prose">{{ project.content | safe }}</div>
       <p class="project-card__links">
-        {% if project.demo %}<a href="/demos/{{ project.demo }}/">Demo write-up &rarr;</a>{% endif %}
+        {% if project.demo %}<a href="{{ '/demos/' | url }}{{ project.demo }}/">Demo write-up &rarr;</a>{% endif %}
         {% if project.link %}<a href="{{ project.link }}">Source &rarr;</a>{% endif %}
       </p>
     </li>
