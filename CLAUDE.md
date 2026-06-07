@@ -28,8 +28,8 @@ content/
 │   ├── education/*.md      — one file per degree (front matter: degree, institution, location, dates[, thesis])
 │   ├── publications/*.md   — one file per pub    (front matter: title, venue, link, tag)
 │   └── projects/*.md       — one file per project (front matter: title, stack, demo, link)
-└── project-demos/*.md      — one file per deep-dive demo page (rich front matter: title,
-                              subtitle, volume, issue, pullquote, pullquoteCite, media[], links[])
+└── demos/*.md              — one file per deep-dive demo page (rich front matter: title, )
+└── demos/*.md              — one file per deep-dive demo page (rich front matter: title subtitle, volume, issue, pullquote, pullquoteCite, media[], links[])
 ```
 
 Rules that make this work (don't break them when touching templates):
@@ -39,11 +39,11 @@ Rules that make this work (don't break them when touching templates):
   in `content/home/experience/` and rebuilding.
 - Filenames in `home/**` collection directories are prefixed `NN-` to control
   display order (`01-…`, `02-…`); the prefix is stripped from the slug.
-  `project-demos/*.md` filenames (no prefix) become the page slug directly,
-  e.g. `healthcare-rag-llm-system.md` → `/project-demos/healthcare-rag-llm-system/`.
+  `projects/*.md` filenames (no prefix) become the page slug directly,
+  e.g. `healthcare-rag-llm-system.md` → `/project/healthcare-rag-llm-system/`.
 - Setting `demo: <slug>` in a `home/projects/*.md` file's front matter links
-  that project card to its matching `/project-demos/<slug>/` page (only if a
-  matching file exists in `content/project-demos/`).
+  that project card to its matching `/demos/<slug>/` page (only if a
+  matching file exists in `content/demos/`).
 - The markdown body of each file becomes the rendered prose (bullet
   achievements for experience, abstracts for education/thesis, write-ups for
   project demos) — front matter holds the structured fields.
@@ -53,10 +53,9 @@ Rules that make this work (don't break them when touching templates):
 - `src/_lib/contentLoader.js` — shared `loadMarkdownFile`/`loadMarkdownDir`
   helpers (front matter via `gray-matter`, rendering via `markdown-it`).
   Lives outside `_data/` on purpose so Eleventy doesn't treat it as global data.
-- `src/_data/me.js` — aggregates all six "Me" sections into one object.
-- `src/_data/projectDemos.js` — loads every `content/project-demos/*.md` file;
-  `src/project-demo-detail.njk` paginates over it (`size: 1`) with a computed
-  `permalink: "/project-demos/{{ demo.slug }}/"` to generate one page per file.
+- `src/_data/home.js` — loads About (`content/about/about.md`), Contact (`content/contact/contact.md`), and the home page sections (experience, education, publications) from `content/home/`.
+- `src/_data/projects.js` — loads all files from `content/projects/` (numbered card files + slug-named demo detail pages); used for the project grid on the home page and for `project-demo-detail.njk` pagination.
+- `src/_data/demos.js` — loads demo content from `content/demos/`.
 - `src/_layouts/base.njk` — shared shell (header/nav/theme-toggle/footer).
 - `src/css/style.css` — Editorial/Clinical-Journal tokens + components (see DESIGN.md).
 

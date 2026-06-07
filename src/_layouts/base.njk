@@ -22,7 +22,8 @@
     <a class="site-header__brand" href="/">Cabir Celik</a>
     <nav class="site-nav" aria-label="Primary">
       <a class="site-nav__link" href="/" {% if nav == "me" %}aria-current="page"{% endif %}>Me</a>
-      <a class="site-nav__link" href="/project-demos/" {% if nav == "project-demos" %}aria-current="page"{% endif %}>Project Demos</a>
+      <a class="site-nav__link" href="/projects/" {% if nav == "projects" %}aria-current="page"{% endif %}>Projects</a>
+      <a class="site-nav__link" href="/demos/" {% if nav == "demos" %}aria-current="page"{% endif %}>Demos</a>
     </nav>
     <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle dark mode">
       <span class="theme-toggle__icon" aria-hidden="true">&#9788;</span>

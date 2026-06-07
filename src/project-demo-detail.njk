@@ -1,18 +1,18 @@
 ---
 layout: base.njk
-nav: project-demos
+nav: demos
 pagination:
-  data: projectDemos
+  data: demos
   size: 1
   alias: demo
-permalink: "/project-demos/{{ demo.slug }}/"
+permalink: "/demos/{{ demo.slug }}/"
 eleventyComputed:
-  title: "{{ demo.title }} — Project Demos — Cabir Celik"
+  title: "{{ demo.title }} — Demos — Cabir Celik"
   description: "{{ demo.subtitle }}"
 ---
 <article class="demo-page">
   <header class="demo-spread__header">
-    <p class="running-head">Project Demos &middot; {{ demo.volume }} &middot; {{ demo.issue }}</p>
+    <p class="running-head">Demos &middot; {{ demo.volume }} &middot; {{ demo.issue }}</p>
     <h1 class="demo-spread__title">{{ demo.title }}</h1>
     <p class="demo-spread__subtitle">{{ demo.subtitle }}</p>
   </header>
@@ -55,5 +55,5 @@ eleventyComputed:
     {% endif %}
   </div>
 
-  <p class="demo-page__back"><a href="/project-demos/">&larr; Back to Project Demos</a></p>
+  <p class="demo-page__back"><a href="/demos/">&larr; Back to Demos</a></p>
 </article>

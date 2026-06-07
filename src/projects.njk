@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: "Projects — Cabir Celik"
+nav: projects
+permalink: /projects/
+---
+<div class="projects-index">
+  <p class="running-head">Projects &middot; Index</p>
+  <h1>Projects</h1>
+  <p class="projects-index__intro">
+    Production systems, research implementations, and open-source tools.
+    Add a new <code>.md</code> file under <code>content/projects/</code> to
+    publish a new entry here.
+  </p>
+  <ul class="project-grid">
+    {% for project in projects %}
+    <li class="project-card">
+      <h2 class="project-card__title">{{ project.title }}</h2>
+      <p class="project-card__stack mono">{{ project.stack }}</p>
+      <div class="prose">{{ project.content | safe }}</div>
+      <p class="project-card__links">
+        {% if project.demo %}<a href="/demos/{{ project.demo }}/">Demo write-up &rarr;</a>{% endif %}
+        {% if project.link %}<a href="{{ project.link }}">Source &rarr;</a>{% endif %}
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

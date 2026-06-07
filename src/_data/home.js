@@ -5,11 +5,10 @@ const { loadMarkdownFile, loadMarkdownDir } = require("../_lib/contentLoader");
 // edit, or delete a file there and it shows up here automatically.
 module.exports = function () {
   return {
-    about: loadMarkdownFile("home/about.md"),
-    contact: loadMarkdownFile("home/contact.md"),
+    about: loadMarkdownFile("about/about.md"),
+    contact: loadMarkdownFile("contact/contact.md"),
     experience: loadMarkdownDir("home/experience"),
     education: loadMarkdownDir("home/education"),
     publications: loadMarkdownDir("home/publications"),
-    projects: loadMarkdownDir("home/projects"),
   };
 };

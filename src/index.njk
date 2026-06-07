@@ -8,31 +8,31 @@ nav: me
     <section class="me-hero" id="about" aria-labelledby="about-heading">
       <p class="running-head">Me &middot; About</p>
       <div class="me-hero__grid">
-        <img class="me-hero__avatar" src="{{ me.about.avatar }}" alt="Portrait of {{ me.about.name }}">
+        <img class="me-hero__avatar" src="{{ home.about.avatar }}" alt="Portrait of {{ home.about.name }}">
         <div>
-          <h1 id="about-heading" class="me-hero__name">{{ me.about.name }}</h1>
-          <p class="me-hero__title">{{ me.about.title }}</p>
-          <p class="me-hero__location">{{ me.about.location }}</p>
+          <h1 id="about-heading" class="me-hero__name">{{ home.about.name }}</h1>
+          <p class="me-hero__title">{{ home.about.title }}</p>
+          <p class="me-hero__location">{{ home.about.location }}</p>
           <ul class="badge-list">
-            {% for badge in me.about.badges %}
+            {% for badge in home.about.badges %}
             <li class="badge">{{ badge }}</li>
             {% endfor %}
           </ul>
           <ul class="profile-links">
-            {% for profile in me.about.profiles %}
+            {% for profile in home.about.profiles %}
             <li><a href="{{ profile.url }}">{{ profile.label }}</a></li>
             {% endfor %}
           </ul>
         </div>
       </div>
-      <div class="prose">{{ me.about.content | safe }}</div>
+      <div class="prose">{{ home.about.content | safe }}</div>
     </section>
 
     <section class="me-section" id="experience" aria-labelledby="experience-heading">
       <p class="running-head">Me &middot; Experience</p>
       <h2 id="experience-heading">Experience</h2>
       <ol class="timeline">
-        {% for job in me.experience %}
+        {% for job in home.experience %}
         <li class="timeline-item">
           <p class="timeline-item__dates mono">{{ job.dates }}</p>
           <h3 class="timeline-item__role">{{ job.role }}</h3>
@@ -47,7 +47,7 @@ nav: me
       <p class="running-head">Me &middot; Education</p>
       <h2 id="education-heading">Education</h2>
       <ol class="timeline">
-        {% for degree in me.education %}
+        {% for degree in home.education %}
         <li class="timeline-item">
           <p class="timeline-item__dates mono">{{ degree.dates }}</p>
           <h3 class="timeline-item__role">{{ degree.degree }}</h3>
@@ -68,7 +68,7 @@ nav: me
       <p class="running-head">Me &middot; Publications</p>
       <h2 id="publications-heading">Publications</h2>
       <ol class="pub-list">
-        {% for pub in me.publications %}
+        {% for pub in home.publications %}
         <li class="pub-item">
           <p class="pub-item__tag mono">{{ pub.tag }}</p>
           <h3 class="pub-item__title">
@@ -85,13 +85,13 @@ nav: me
       <p class="running-head">Me &middot; Projects</p>
       <h2 id="projects-heading">Projects</h2>
       <ul class="project-grid">
-        {% for project in me.projects %}
+        {% for project in projects %}
         <li class="project-card">
           <h3 class="project-card__title">{{ project.title }}</h3>
           <p class="project-card__stack mono">{{ project.stack }}</p>
           <div class="prose">{{ project.content | safe }}</div>
           <p class="project-card__links">
-            {% if project.demo %}<a href="/project-demos/{{ project.demo }}/">Project demo &rarr;</a>{% endif %}
+            {% if project.demo %}<a href="/demos/{{ project.demo }}/">Demo write-up &rarr;</a>{% endif %}
             {% if project.link %}<a href="{{ project.link }}">Source &rarr;</a>{% endif %}
           </p>
         </li>
@@ -101,15 +101,15 @@ nav: me
 
     <section class="me-section" id="contact" aria-labelledby="contact-heading">
       <p class="running-head">Me &middot; Contact</p>
-      <h2 id="contact-heading">{{ me.contact.heading }}</h2>
-      <div class="prose">{{ me.contact.content | safe }}</div>
+      <h2 id="contact-heading">{{ home.contact.heading }}</h2>
+      <div class="prose">{{ home.contact.content | safe }}</div>
       <ul class="profile-links">
-        {% for profile in me.contact.profiles %}
+        {% for profile in home.contact.profiles %}
         <li><a href="{{ profile.url }}">{{ profile.label }}</a></li>
         {% endfor %}
       </ul>
       <ul class="language-list mono">
-        {% for language in me.contact.languages %}
+        {% for language in home.contact.languages %}
         <li>{{ language }}</li>
         {% endfor %}
       </ul>

@@ -1,24 +1,24 @@
 ---
 layout: base.njk
-title: "Project Demos — Cabir Celik"
-nav: project-demos
-permalink: /project-demos/
+title: "Demos — Cabir Celik"
+nav: demos
+permalink: /demos/
 ---
 <div class="demos-index">
-  <p class="running-head">Project Demos &middot; Index</p>
-  <h1>Project Demos</h1>
+  <p class="running-head">Demos &middot; Index</p>
+  <h1>Demos</h1>
   <p class="demos-index__intro">
     Deep dives into selected projects — source code, architecture notes,
     media, and papers. Add a new <code>.md</code> file under
-    <code>content/project-demos/</code> to publish a new entry here.
+    <code>content/demos/</code> to publish a new entry here.
   </p>
   <ul class="demo-card-list">
-    {% for demo in projectDemos %}
+    {% for demo in demos %}
     <li class="demo-card">
       <p class="demo-card__volume mono">{{ demo.volume }} &middot; {{ demo.issue }}</p>
-      <h2 class="demo-card__title"><a href="/project-demos/{{ demo.slug }}/">{{ demo.title }}</a></h2>
+      <h2 class="demo-card__title"><a href="/demos/{{ demo.slug }}/">{{ demo.title }}</a></h2>
       <p class="demo-card__subtitle">{{ demo.subtitle }}</p>
-      <a class="demo-card__link" href="/project-demos/{{ demo.slug }}/">Read the write-up &rarr;</a>
+      <a class="demo-card__link" href="/demos/{{ demo.slug }}/">Read the write-up &rarr;</a>
     </li>
     {% endfor %}
   </ul>
