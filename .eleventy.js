@@ -3,13 +3,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
 
-  // "Project Demos" is the one collection that produces its own pages —
-  // built dynamically via pagination over global data (see _data/projectDemos.js
-  // and src/project-demo-detail.njk). Adding a .md file under content/project-demos/
-  // is enough to add a new page; nothing here needs to change.
   eleventyConfig.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
 
   return {
+    pathPrefix: "/resume/",
     dir: {
       input: "src",
       includes: "_includes",
