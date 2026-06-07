@@ -21,7 +21,7 @@ changes.
 
 ```
 content/
-├── me/
+├── home/
 │   ├── about.md            — hero/bio copy (front matter: name, title, location, badges, profiles)
 │   ├── contact.md          — contact section copy
 │   ├── experience/*.md     — one file per role   (front matter: role, org, location, dates)
@@ -36,12 +36,12 @@ Rules that make this work (don't break them when touching templates):
 
 - **Add a file → a new entry/page appears. Delete a file → it disappears.**
   Nothing else needs to change. Verified by adding/removing a throwaway file
-  in `content/me/experience/` and rebuilding.
-- Filenames in `me/**` collection directories are prefixed `NN-` to control
+  in `content/home/experience/` and rebuilding.
+- Filenames in `home/**` collection directories are prefixed `NN-` to control
   display order (`01-…`, `02-…`); the prefix is stripped from the slug.
   `project-demos/*.md` filenames (no prefix) become the page slug directly,
   e.g. `healthcare-rag-llm-system.md` → `/project-demos/healthcare-rag-llm-system/`.
-- Setting `demo: <slug>` in a `me/projects/*.md` file's front matter links
+- Setting `demo: <slug>` in a `home/projects/*.md` file's front matter links
   that project card to its matching `/project-demos/<slug>/` page (only if a
   matching file exists in `content/project-demos/`).
 - The markdown body of each file becomes the rendered prose (bullet

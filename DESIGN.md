@@ -106,10 +106,10 @@ model" section in [CLAUDE.md](CLAUDE.md) for the authoring workflow. Design
 tokens above are implemented in `src/css/style.css`; templates live in
 `src/_layouts/` and `src/*.njk`.
 
-1. **"Me"** (`/`) — hero (from `content/me/about.md`) + six sidebar sections:
-   About, Experience (`content/me/experience/*.md`), Education
-   (`content/me/education/*.md`), Publications (`content/me/publications/*.md`),
-   Projects (`content/me/projects/*.md`), Contact (`content/me/contact.md`)
+1. **"Me"** (`/`) — hero (from `content/home/about.md`) + six sidebar sections:
+   About, Experience (`content/home/experience/*.md`), Education
+   (`content/home/education/*.md`), Publications (`content/home/publications/*.md`),
+   Projects (`content/home/projects/*.md`), Contact (`content/home/contact.md`)
 2. **"Project Demos"** (`/project-demos/`) — index of demo cards, each
    linking to a journal-spread detail page generated from
    `content/project-demos/*.md` (one file = one page, via Eleventy
